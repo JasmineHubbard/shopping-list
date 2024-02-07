@@ -100,10 +100,15 @@ function getItemsFromStorage() {
 }
 
 function onClickItem(e) {
+    console.log("🚀 ~ onClickItem ~ e:", e)
     if (e.target.parentElement.classList.contains('remove-item')) {
         removeItem(e.target.parentElement.parentElement);
-    } else {
+        return;
+    }
+    
+    if (e.target.id != 'item-list') {
         setItemToEdit(e.target);
+        return;
     }
 }
 
